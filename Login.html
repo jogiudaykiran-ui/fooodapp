@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodApp Login</title>
+    <script src="./Login.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        filter: blur(8px);
+        z-index: -1;
+    }
+
+    #switch1 {
+        background-color: transparent;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    #switch1 a {
+        color: white;
+        text-decoration: none;
+    }
+
+    #switch1:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+  
+    .container {
+        width: 600px;
+        height: 350px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: inline-flex; 
+    }
+
+    .backbox {  
+        background-color: rgba(64, 64, 64, 0.7);
+        width: 100%;
+        height: 80%;
+        position: absolute;
+        transform: translate(0, -50%);
+        top: 50%;
+        display: inline-flex;
+    }
+  
+    .frontbox {
+        background-color: white;
+        border-radius: 20px;
+        height: 100%;
+        width: 50%;
+        z-index: 10;
+        position: absolute;
+        right: 0;
+        margin-right: 3%;
+        margin-left: 3%;
+        transition: right .8s ease-in-out;
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 255);
+    }
+  
+    .moving {
+        right: 45%;
+    }
+  
+    .loginMsg, .signupMsg {
+        width: 50%;
+        height: 100%;
+        font-size: 15px;
+        box-sizing: border-box;
+    }
+  
+    .loginMsg .title,
+    .signupMsg .title {
+        font-weight: 300;
+        font-size: 23px;
+    }
+  
+    .loginMsg p,
+    .signupMsg p {
+        font-weight: 100;
+    }
+  
+    .textcontent {
+        color: white;
+        margin-top: 65px;
+        margin-left: 12%;
+    }
+  
+    .loginMsg button,
+    .signupMsg button {
+        background-color: #f9f9f9;
+        border: 2px solid white;
+        border-radius: 10px;
+        color: white;
+        font-size: 12px;
+        box-sizing: content-box;
+        font-weight: 300;
+        padding: 10px;
+        margin-top: 20px;
+    }
+  
+    .login, .signup {
+        padding: 20px;
+        text-align: center;
+    }
+  
+    .login h2,
+    .signup h2 {
+        color: #35B729;
+        font-size: 22px;
+    }
+  
+    .inputbox {
+        margin-top: 30px; 
+    }
+
+    .login input, 
+    .signup input {
+        display: block;
+        width: 100%;
+        height: 40px;
+        background-color: #f2f2f2;
+        border: none;
+        margin-bottom: 20px;
+        font-size: 12px;
+    }
+  
+    .login button,
+    .signup button {
+        background-color: #35B729;
+        border: none;
+        color: white;
+        font-size: 12px;
+        font-weight: 300;
+        box-sizing: content-box;
+        padding: 10px;
+        border-radius: 10px;
+        width: 60px;
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+        cursor: pointer;
+    }
+  
+    .login p {
+        cursor: pointer;
+        color: #404040;
+        font-size: 15px;
+    }
+  
+    .loginMsg, .signupMsg {
+        transition: opacity .8s ease-in-out;
+    }
+  
+    .visibility {
+        opacity: 0;
+    }
+  
+    .hide {
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <form action="Login">
+        <div class="container">
+            <div class="backbox">
+                <div class="loginMsg">
+                    <div class="textcontent">
+                        <p class="title">Don't have an account?</p>
+                        <p>Sign up to save all your graph.</p>
+                        <button id="switch1"><a href="./SignUp.html">sign up</a></button>
+                    </div>
+                </div>
+                <div class="signupMsg visibility">
+                    <div class="textcontent">
+                        <p class="title">Have an account?</p>
+                        <p>Log in to see all your collection.</p>
+                        <button id="switch2">LOG IN</button>
+                    </div>
+                </div>
+            </div>
+            <!-- backbox -->
+  
+            <div class="frontbox">
+                <div class="login">
+                    <h2>LOG IN</h2>
+                    <div class="inputbox">
+                        <input type="text" name="email" placeholder="  EMAIL">
+                        <input type="password" name="password" placeholder="  PASSWORD">
+                    </div>
+                    <a href="forgotPassword.html"><p>FORGET PASSWORD?</p></a>
+                    <button>LOG IN</button>
+                </div>
+  
+                <div class="signup hide">
+                    <h2>SIGN UP</h2>
+                    <div class="inputbox">
+                        <input type="text" name="fullname" placeholder="  FULLNAME">
+                        <input type="text" name="email" placeholder="  EMAIL">
+                        <input type="password" name="password" placeholder="  PASSWORD">
+                    </div>
+                    <button><a href="SignUp.html"></a>SIGN UP</button>
+                </div>
+            </div>
+            <!-- frontbox -->
+        </div>
+    </form>
+</body>
+</html>
+
